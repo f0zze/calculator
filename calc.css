@@ -1,5 +1,25 @@
 .calc {
-    border:1px solid gray;
-    width:50px;
-    height:150px;
+    border: 1px solid #808080;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.calc__display {
+    padding: 5px;
+    text-align: right;
+}
+.calc__nums {
+    width: 150px;
+}
+
+.calc__num {
+    background-color: #94B2B3;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #285758;
+    width: 50px;
+}
+
+.calc__num:last-child {
+    width: 100px;
 }
