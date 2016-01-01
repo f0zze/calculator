@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="calc.css">
 </head>
 <body>
-
+<div class="calc">
+    <div class="calc__display"></div>
+    <div class="calc__nums"></div>
+</div>
+<script src="calculator.js"></script>
+<script>
+    new Calculator({
+        el:document.querySelector('.calc')
+    });
+</script>
 </body>
 </html>
