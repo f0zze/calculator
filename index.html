@@ -8,23 +8,17 @@
 </head>
 <body>
 <div class="component1 calc">
-    <div class="calc__display"></div>
-    <div class="calc__nums"></div>
-    <div class="calc__actions"></div>
-</div>
-<div class="component2 calc">
-    <div class="calc__display"></div>
+    <div class="calc__display">
+        <span class="display__sub"></span>
+        <span class="display__main"></span>
+    </div>
     <div class="calc__nums"></div>
     <div class="calc__actions"></div>
 </div>
 <script src="calculator.js"></script>
 <script>
     new Calculator({
-        el:document.querySelector('.component1')
-    });
-
-    new Calculator({
-        el:document.querySelector('.component2')
+        el: document.querySelector('.component1')
     });
 </script>
 </body>

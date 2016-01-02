@@ -7,7 +7,9 @@ class Calculator {
         this._actionChars = ['-', '+', '/', '*'];
 
         this._calculator = options.el;
-        this._display = this._calculator.querySelector('.calc__display');
+
+        this._display = this._calculator.querySelector('.display__main');
+        this._subDisplay = this._calculator.querySelector('.display__sub');
         this._numsContainer = this._calculator.querySelector('.calc__nums');
         this._actionContainer = this._calculator.querySelector('.calc__actions');
         this._calculator.addEventListener('click', this._processEvent.bind(this));
@@ -16,22 +18,47 @@ class Calculator {
             e.preventDefault()
         });
 
-
         this._drawCalculator();
-        this._displayClear();
     }
 
     _processEvent(event) {
         if (event.target.dataset.num) {
-            this._displayAdd(event.target.dataset.num);
+            this._numberBtnIsClicked(event.target.dataset.num);
         }
+        if (event.target.dataset.action) {
+            this._actionBtnIsClicked(event.target.dataset.action)
+        }
+    }
 
-        if(event.target.dataset.action) {
-            console.log(event.target.dataset.action);
+    _numberBtnIsClicked(num) {
+        if (num === '0' && this._currentValue === '0') {
+            return;
+        } else if (this._currentValue === '0' && num !== '0') {
+            this._currentValue = '';
+        }
+        this._currentValue += num;
+        this._display.innerHTML = this._currentValue;
+    }
+
+    _actionBtnIsClicked(action) {
+        switch (action) {
+            case '+':
+                console.log('+');
+                break;
+            case '-':
+                console.log('-');
+                break;
+            case '*':
+                console.log('*');
+                break;
+            case '/':
+                console.log('/');
+                break;
         }
     }
 
     _drawCalculator() {
+        this._displayClear();
         this._drawNumsBtns();
         this._drawActionBtns();
     }
@@ -59,7 +86,7 @@ class Calculator {
     }
 
     _displayAdd(value) {
-        if (this._currentValue === '0' && value !== '0') {
+        if (this._currentValue === '0') {
             this._currentValue = '';
         }
         this._display.innerHTML = this._currentValue += String(value);
