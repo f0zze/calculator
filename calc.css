@@ -5,8 +5,14 @@
 }
 
 .calc__display {
+    height: 65px;
     padding: 5px;
     text-align: right;
+    font-size: 18px;
+}
+.display__history {
+    font-size: 13px;
+    color:darkgray;
 }
 .calc__nums {
     width: 150px;
